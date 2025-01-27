@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ToDo</string>
+    <string name="todo">قائمة المهام</string>
+    <string name="tasks">المهام</string>
+    <string name="add">اضف</string>
+    <string name="settings">إعدادات</string>
+    <string name="edit">تعديل</string>
+    <string name="delete">مسح</string>
+    <string name="add_new_task">اضافة مهمة جديدة</string>
+    <string name="enter_your_task_title">ادخل عنوان المهمة</string>
+    <string name="description">الوصف</string>
+    <string name="select_date">اختار التاريخ</string>
+    <string name="select_time">اختار الوقت</string>
+    <string name="no_description">بدون وصف</string>
+    <string name="enter_task">ادخل المهمة</string>
+    <string name="done">تمت</string>
+    <string name="edit_task">تعديل المهمة</string>
+    <string name="save_changes">حفظ التغييرات</string>
+    <string name="task_updated">المهمة تعدلت</string>
+    <string name="language">اللغة</string>
+    <string name="mode">الواجهة</string>
+    <string name="all_tasks">كل المهمات</string>
+    <string name="go_to_tasks_to_create_new_task">اذهب للمهمات لعمل مهمة جديدة</string>
+    <string-array name="languages">
+        <item>الإنجليزية</item>
+        <item>العربية</item>
+    </string-array>
+    <string-array name="modes">
+        <item>الوضع النهاري</item>
+        <item>الوضع الليلي</item>
+    </string-array>
+</resources>

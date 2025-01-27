@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">ToDo</string>
+    <string name="todo">To Do List</string>
+    <string name="tasks">Tasks</string>
+    <string name="add">Add</string>
+    <string name="settings">Settings</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="add_new_task">Add New Task</string>
+    <string name="enter_your_task_title">Enter your task title</string>
+    <string name="description">Description</string>
+    <string name="select_date">Select Date</string>
+    <string name="select_time">Select Time</string>
+    <string name="no_description">No Description</string>
+    <string name="enter_task">Enter Task</string>
+    <string name="done">Done!</string>
+    <string name="edit_task">Edit Task</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="task_updated">Task Updated</string>
+    <string name="language">Language</string>
+    <string name="mode">Mode</string>
+    <string name="all_tasks">All Tasks</string>
+    <string name="go_to_tasks_to_create_new_task">Go to Tasks to create new task</string>
+    <string-array name="languages">
+        <item>English</item>
+        <item>Arabic</item>
+    </string-array>
+    <string-array name="modes">
+        <item>Light Mode</item>
+        <item>Dark Mode</item>
+    </string-array>
+</resources>

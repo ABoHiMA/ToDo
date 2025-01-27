@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/sheet_corner"
+    android:padding="18dp">
+
+    <View
+        android:id="@+id/dismiss"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginHorizontal="99dp"
+        android:background="@color/primaryColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv"
+        style="@style/txtTitle"
+        android:layout_width="match_parent"
+        android:text="@string/add_new_task"
+        app:layout_constraintTop_toBottomOf="@id/dismiss" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="18dp"
+        android:hint="@string/enter_your_task_title"
+        android:inputType="text"
+        android:padding="18dp"
+        app:layout_constraintTop_toBottomOf="@id/tv" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="18dp"
+        app:layout_constraintTop_toBottomOf="@id/et_title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/description"
+            android:lines="2"
+            android:maxLines="5"
+            android:padding="18dp"
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_date"
+        style="@style/btnSelectStyle"
+        android:text="@string/select_date"
+        app:layout_constraintEnd_toStartOf="@id/btn_time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_desc" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_time"
+        style="@style/btnSelectStyle"
+        android:text="@string/select_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_date"
+        app:layout_constraintTop_toBottomOf="@id/layout_desc" />
+
+    <TextView
+        android:id="@+id/tv_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="6dp"
+        android:textColor="@color/red"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/btn_date"
+        tools:text="Error" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_enter"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="18dp"
+        android:backgroundTint="@color/primaryColor"
+        android:text="@string/enter_task"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:cornerRadius="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_error" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

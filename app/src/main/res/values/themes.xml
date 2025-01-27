@@ -1,0 +1,60 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ToDo" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorOnPrimary">@color/onPrimaryColor</item>
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorOnSecondary">@color/onSecondaryColor</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorOnBackground">@color/onBackground</item>
+
+
+    </style>
+
+    <style name="Theme.ToDo" parent="Base.Theme.ToDo" />
+
+    <style name="toolBarTitleStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:text">@string/todo</item>
+    </style>
+
+    <style name="btnSelectStyle" parent="Widget.Material3.Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="android:layout_marginVertical">18dp</item>
+        <item name="android:layout_marginHorizontal">3dp</item>
+        <item name="backgroundTint">@color/secondaryColor</item>
+        <item name="android:textColor">@color/primaryColor</item>
+        <item name="android:textSize">20sp</item>
+        <item name="cornerRadius">18dp</item>
+        <item name="strokeColor">@color/primaryColor</item>
+        <item name="strokeWidth">3dp</item>
+    </style>
+
+    <style name="txtTitle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">18dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorText</item>
+    </style>
+
+
+    <!--    <style name="fab_style" parent="Widget.Design.FloatingActionButton">-->
+    <!--        <item name="shapeAppearanceOverlay">@style/fab_rounded</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="fab_rounded" parent="ShapeAppearance.MaterialComponents.SmallComponent">-->
+    <!--        <item name="cornerFamily">rounded</item>-->
+    <!--        <item name="cornerSize">50%</item>-->
+    <!--        <item name="background">@drawable/button_bg</item>-->
+    <!--    </style>-->
+
+
+</resources>
