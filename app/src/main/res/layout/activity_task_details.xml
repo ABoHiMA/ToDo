@@ -56,6 +56,7 @@
                 app:iconSize="24dp"
                 app:iconTint="@color/primaryColor"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tv_taskTitle"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView

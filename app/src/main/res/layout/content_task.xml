@@ -22,17 +22,20 @@
 
         <TextView
             android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
             android:layout_marginBottom="6dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textColor="@color/primaryColor"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/tv_time"
+            app:layout_constraintEnd_toStartOf="@id/card_check"
             app:layout_constraintStart_toEndOf="@id/img_status"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Play Basket Ball" />
+            tools:text="@tools:sample/lorem" />
 
         <TextView
             android:id="@+id/tv_time"

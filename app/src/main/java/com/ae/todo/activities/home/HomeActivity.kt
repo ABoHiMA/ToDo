@@ -12,6 +12,7 @@ import com.ae.todo.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var bindingView: ActivityHomeBinding
+    private var isTask = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         initApp(this)
@@ -34,10 +35,22 @@ class HomeActivity : AppCompatActivity() {
 
     private fun initNavBar() {
         bindingView.navBar.setOnItemSelectedListener { menu ->
-            val fragment: Fragment = when (menu.itemId) {
-                R.id.item_tasks -> TaskFragment()
-                R.id.item_settings -> SettingsFragment()
-                else -> TaskFragment()
+            val fragment: Fragment
+            when (menu.itemId) {
+                R.id.item_tasks -> {
+                    fragment = TaskFragment()
+                    isTask = true
+                }
+
+                R.id.item_settings -> {
+                    fragment = SettingsFragment()
+                    isTask = false
+                }
+
+                else -> {
+                    fragment = TaskFragment()
+                    isTask = true
+                }
             }
             replaceFragment(fragment)
             return@setOnItemSelectedListener true
@@ -68,7 +81,7 @@ class HomeActivity : AppCompatActivity() {
             val bottomSheet = AddTaskFragment()
             bottomSheet.show(supportFragmentManager, "")
             bottomSheet.onTaskAdded =
-                AddTaskFragment.OnTaskAdded { replaceFragment(TaskFragment()) }
+                AddTaskFragment.OnTaskAdded { if (isTask) replaceFragment(TaskFragment()) }
         }
     }
 
