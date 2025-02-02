@@ -25,8 +25,6 @@ class TaskFragment : Fragment() {
     private val tasks = mutableListOf<Task>()
     private lateinit var taskDao: TaskDao
     private var calendar: Calendar = Calendar.getInstance()
-//    private var taskTime: Long? = null
-//    private var taskDate: Long? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -37,21 +35,23 @@ class TaskFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        taskDao = MyDataBase.getInstance().taskDao()
         initRecycler()
         initCalendar()
-        taskDao = MyDataBase.getInstance().taskDao()
+        initButtonAll()
+        getTasks()
+    }
+
+    private fun initButtonAll() {
         viewBinding.btnAll.setOnClickListener {
             viewBinding.btnAll.setBackgroundColor(
                 ContextCompat.getColor(
-                    requireContext(),
-                    R.color.primaryColor
+                    requireContext(), R.color.primaryColor
                 )
             )
             viewBinding.calendarView.selectedDate = null
             getTasks()
         }
-        getTasks()
-
     }
 
     private fun initCalendar() {
@@ -61,19 +61,13 @@ class TaskFragment : Fragment() {
             if (selected) {
                 viewBinding.btnAll.setBackgroundColor(
                     ContextCompat.getColor(
-                        requireContext(),
-                        R.color.transparent
+                        requireContext(), R.color.transparent
                     )
                 )
                 val dateByString = convertToDate(dateByLong, false)
                 getTasksByDate(dateByString)
             }
         }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        getTasks()
     }
 
     private fun initRecycler() {
@@ -99,7 +93,6 @@ class TaskFragment : Fragment() {
         }
     }
 
-
     private fun getTasks() {
         if (tasks.isNotEmpty()) tasks.clear()
         taskDao.getAllTasks()
@@ -112,7 +105,6 @@ class TaskFragment : Fragment() {
         }
         viewBinding.rvTasks.adapter = adapter
     }
-
 
     private fun getTasksByDate(dateByString: String) {
         if (tasks.isNotEmpty()) tasks.clear()
@@ -127,77 +119,5 @@ class TaskFragment : Fragment() {
         }
         viewBinding.rvTasks.adapter = adapter
     }
-
-    /*
-
-    private fun initAddFragment(context: Context) {
-        bottomSheet = BottomSheetDialog(context)
-        bottomSheet.setContentView(addFragmentBindingView.root)
-        bottomSheet.setOnDismissListener { resetData() }
-        fab.setOnClickListener { bottomSheet.show() }
-    }
-
-        private fun dateTimeButtons(context: Context) {
-        addFragmentBindingView.btnTime.setOnClickListener {
-            showTimePicker(calendar, context) { selectedTime ->
-                val readableTime = convertToDate(selectedTime, true)
-                addFragmentBindingView.btnTime.text = readableTime
-                taskTime = selectedTime
-            }
-        }
-
-        addFragmentBindingView.btnDate.setOnClickListener {
-            showDatePicker(calendar, context) { selectedDate ->
-
-                val readableDate = convertToDate(selectedDate, false)
-                addFragmentBindingView.btnDate.text = readableDate
-                taskDate = convertToLong(addFragmentBindingView.btnDate.text.toString(), false)
-            }
-        }
-    }
-
-        private fun addTask() {
-            taskDao?.insertTask(
-                Task(
-                    title = addFragmentBindingView.etTitle.text.toString(),
-                    desc = addFragmentBindingView.etDesc.text.toString(),
-                    time = taskTime,
-                    date = taskDate,
-                )
-            )
-            getTasks()
-            bottomSheet.dismiss()
-            resetData()
-        }
-        private fun resetData() {
-            addFragmentBindingView.etTitle.text?.clear()
-            addFragmentBindingView.etDesc.text?.clear()
-            addFragmentBindingView.btnDate.setText(R.string.select_date)
-            addFragmentBindingView.btnTime.setText(R.string.select_time)
-            taskTime = null
-            taskDate = null
-        }
-
-        private fun checkValidations(): Boolean {
-            if (addFragmentBindingView.etTitle.length() == 0) {
-                addFragmentBindingView.etTitle.error =
-                    requireActivity().getString(R.string.enter_your_task_title)
-                return false
-            }
-            if (addFragmentBindingView.etDesc.length() == 0) {
-                addFragmentBindingView.etDesc.setText(R.string.no_description)
-            }
-            if (addFragmentBindingView.btnTime.text == requireActivity().getString(R.string.select_time)) {
-                addFragmentBindingView.tvError.text = requireActivity().getString(R.string.select_time)
-                return false
-            }
-            if (addFragmentBindingView.btnDate.text == requireActivity().getString(R.string.select_date)) {
-                addFragmentBindingView.tvError.text = requireActivity().getString(R.string.select_date)
-                return false
-            }
-            addFragmentBindingView.tvError.text = ""
-            return true
-        }
-    */
 
 }

@@ -101,7 +101,6 @@ class SettingsFragment : Fragment(), AdapterView.OnItemSelectedListener {
             2 -> AppCompatDelegate.MODE_NIGHT_YES
             else -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
         }
-
         setMode(selectedTheme)
         sharedPreferences?.edit()?.putInt(SAVED_MODE, selectedTheme)?.apply()
     }

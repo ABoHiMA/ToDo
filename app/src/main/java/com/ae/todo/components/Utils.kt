@@ -18,8 +18,8 @@ object Utils {
     const val SAVED_MODE_POS = "SavedModePosition"
     const val SAVED_LANG = "SavedLanguage"
     const val SAVED_MODE = "SavedMode"
-    var myLang: String? = null
-    var myTheme: Int? = null
+    private var myLang: String? = null
+    private var myTheme: Int? = null
 
     fun convertToDate(dateByLong: Long, isTime: Boolean): String {
         val formatPattern = if (isTime) "hh:mm a" else "dd/MM/yyyy"

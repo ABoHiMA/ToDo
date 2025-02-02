@@ -13,12 +13,12 @@ import com.ae.todo.components.Utils.showTimePicker
 import com.ae.todo.database.MyDataBase
 import com.ae.todo.database.dao.TaskDao
 import com.ae.todo.database.models.Task
-import com.ae.todo.databinding.FragmentAddBinding
+import com.ae.todo.databinding.FragmentAddTaskBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import java.util.Calendar
 
 class AddTaskFragment : BottomSheetDialogFragment() {
-    private lateinit var viewBinding: FragmentAddBinding
+    private lateinit var viewBinding: FragmentAddTaskBinding
     private lateinit var taskDao: TaskDao
     private var calendar: Calendar = Calendar.getInstance()
     private var taskTime: Long? = null
@@ -28,7 +28,7 @@ class AddTaskFragment : BottomSheetDialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        viewBinding = FragmentAddBinding.inflate(inflater, container, false)
+        viewBinding = FragmentAddTaskBinding.inflate(inflater, container, false)
         return viewBinding.root
     }
 
