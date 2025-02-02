@@ -27,7 +27,7 @@
         android:backgroundTint="@color/secondaryColor"
         app:fabAlignmentMode="center"
         app:fabAnchorMode="cradle"
-        app:fabCradleMargin="18dp"
+        app:fabCradleMargin="24dp"
         app:fabCradleVerticalOffset="0dp">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView

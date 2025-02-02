@@ -24,7 +24,7 @@ interface TaskDao {
     @Query("Select * from Task where date = :date")
     fun getTasksByDate(date: Long): List<Task>
 
-    @Query("Select * from Task where state = 0")
+    @Query("Select * from Task where status = 0")
     fun getDoneTasks(): List<Task>
 
     @Query("Select * from Task where id = :id")

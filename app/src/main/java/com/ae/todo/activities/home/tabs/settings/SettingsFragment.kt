@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.ae.todo.R
@@ -19,12 +18,10 @@ import com.ae.todo.components.Utils.setLanguage
 import com.ae.todo.components.Utils.setMode
 import com.ae.todo.components.Utils.sharedPreferences
 import com.ae.todo.databinding.FragmentSettingsBinding
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class SettingsFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private lateinit var viewBinding: FragmentSettingsBinding
-    private lateinit var fab: FloatingActionButton
     private lateinit var textView: TextView
     private var savedLanguage: Int? = null
     private var savedMode: Int? = null
@@ -39,20 +36,9 @@ class SettingsFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initSpinners()
-        implementations()
-    }
 
-    private fun implementations() {
         textView = requireActivity().findViewById(R.id.appbar_title)
-        fab = requireActivity().findViewById(R.id.fab_add_task)
-        fab.setOnClickListener {
-            Toast.makeText(
-                requireContext(),
-                getString(R.string.go_to_tasks_to_create_new_task),
-                Toast.LENGTH_SHORT
-            ).show()
-        }
+        initSpinners()
     }
 
     private fun initSpinners() {
@@ -109,8 +95,13 @@ class SettingsFragment : Fragment(), AdapterView.OnItemSelectedListener {
     }
 
     private fun changeTheme(position: Int) {
-        val selectedTheme =
-            if (position == 0) AppCompatDelegate.MODE_NIGHT_NO else AppCompatDelegate.MODE_NIGHT_YES
+        val selectedTheme = when (position) {
+            0 -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+            1 -> AppCompatDelegate.MODE_NIGHT_NO
+            2 -> AppCompatDelegate.MODE_NIGHT_YES
+            else -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+        }
+
         setMode(selectedTheme)
         sharedPreferences?.edit()?.putInt(SAVED_MODE, selectedTheme)?.apply()
     }

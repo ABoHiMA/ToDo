@@ -13,5 +13,5 @@ data class Task(
     var desc: String? = null,
     var date: Long? = null,
     var time: Long? = null,
-    var state: Boolean = false,
+    var status: Boolean = false,
 )

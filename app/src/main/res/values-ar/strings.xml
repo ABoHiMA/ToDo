@@ -27,6 +27,7 @@
         <item>العربية</item>
     </string-array>
     <string-array name="modes">
+        <item>تابع للنظام</item>
         <item>الوضع النهاري</item>
         <item>الوضع الليلي</item>
     </string-array>

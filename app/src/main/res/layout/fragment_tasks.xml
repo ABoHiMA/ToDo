@@ -33,8 +33,7 @@
             android:layout_height="0dp"
             android:text="@string/all_tasks"
             android:textColor="@color/colorText"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
 
     </com.prolificinteractive.materialcalendarview.MaterialCalendarView>
 

@@ -4,19 +4,24 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.ae.todo.R
+import com.ae.todo.activities.home.tabs.add.AddTaskFragment
 import com.ae.todo.activities.home.tabs.settings.SettingsFragment
 import com.ae.todo.activities.home.tabs.tasks.TaskFragment
 import com.ae.todo.components.Utils.initApp
 import com.ae.todo.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
-    lateinit var bindingView: ActivityHomeBinding
+    private lateinit var bindingView: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         initApp(this)
         super.onCreate(savedInstanceState)
-        initActivity(savedInstanceState)
 
+        bindingView = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(bindingView.root)
+        initNavBar()
+        restoreFragment(savedInstanceState)
+        setOnFabClick()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -25,13 +30,6 @@ class HomeActivity : AppCompatActivity() {
         if (currentFragment != null) {
             outState.putString("current_fragment", currentFragment.javaClass.name)
         }
-    }
-
-    private fun initActivity(savedInstanceState: Bundle?) {
-        bindingView = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(bindingView.root)
-        initNavBar()
-        restoreFragment(savedInstanceState)
     }
 
     private fun initNavBar() {
@@ -59,8 +57,19 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(bindingView.contentHome.fragmentContainer.id, fragment).commit()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
+    }
+
+    private fun setOnFabClick() {
+        bindingView.fabAddTask.setOnClickListener {
+            val bottomSheet = AddTaskFragment()
+            bottomSheet.show(supportFragmentManager, "")
+            bottomSheet.onTaskAdded =
+                AddTaskFragment.OnTaskAdded { replaceFragment(TaskFragment()) }
+        }
     }
 
 }

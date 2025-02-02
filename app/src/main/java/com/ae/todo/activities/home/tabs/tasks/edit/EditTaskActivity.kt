@@ -71,7 +71,7 @@ class EditTaskActivity : AppCompatActivity() {
                 desc = viewBinding.etDesc.text.toString(),
                 date = convertToLong(viewBinding.btnDate.text.toString(), false),
                 time = convertToLong(viewBinding.btnTime.text.toString(), true),
-                state = task.state,
+                status = task.status,
             )
         )
         Toast.makeText(this, getString(R.string.task_updated), Toast.LENGTH_SHORT).show()

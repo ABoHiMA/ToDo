@@ -27,9 +27,8 @@ class TaskAdapter(val listOfTasks: MutableList<Task>) :
         notifyItemRangeChanged(position, listOfTasks.size - position)
     }
 
-    fun changeState(position: Int) {
-        listOfTasks[position].state = !listOfTasks[position].state
-
+    fun changeStatus(position: Int) {
+        listOfTasks[position].status = !listOfTasks[position].status
         notifyItemChanged(position)
     }
 
@@ -43,7 +42,7 @@ class TaskAdapter(val listOfTasks: MutableList<Task>) :
             itemBinding.contentTask.tvTime.text = time
             itemBinding.contentTask.tvDate.text = date
 
-            if (task.state) {
+            if (task.status) {
                 itemBinding.contentTask.imgStatus.setImageResource(R.color.onSecondaryColor)
                 itemBinding.contentTask.tvTitle.setTextColor(
                     ContextCompat.getColor(
