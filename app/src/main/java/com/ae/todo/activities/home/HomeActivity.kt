@@ -39,16 +39,19 @@ class HomeActivity : AppCompatActivity() {
             when (menu.itemId) {
                 R.id.item_tasks -> {
                     fragment = TaskFragment()
+                    bindingView.appbarTitle.setText(R.string.todo)
                     isTask = true
                 }
 
                 R.id.item_settings -> {
                     fragment = SettingsFragment()
+                    bindingView.appbarTitle.setText(R.string.settings)
                     isTask = false
                 }
 
                 else -> {
                     fragment = TaskFragment()
+                    bindingView.appbarTitle.setText(R.string.todo)
                     isTask = true
                 }
             }

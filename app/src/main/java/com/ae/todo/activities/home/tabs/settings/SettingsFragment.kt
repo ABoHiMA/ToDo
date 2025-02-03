@@ -54,7 +54,6 @@ class SettingsFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 viewBinding.spinnerMode.adapter = adapter
             }
 
-
         savedLanguage = sharedPreferences?.getInt(SAVED_LANG_POS, 0)
         savedMode = sharedPreferences?.getInt(SAVED_MODE_POS, 0)
 

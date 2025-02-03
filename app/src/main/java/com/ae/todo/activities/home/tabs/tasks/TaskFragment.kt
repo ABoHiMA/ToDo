@@ -42,6 +42,11 @@ class TaskFragment : Fragment() {
         getTasks()
     }
 
+    override fun onResume() {
+        super.onResume()
+        getTasks()
+    }
+
     private fun initButtonAll() {
         viewBinding.btnAll.setOnClickListener {
             viewBinding.btnAll.setBackgroundColor(
