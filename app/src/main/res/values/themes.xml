@@ -21,6 +21,7 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:text">@string/todo</item>
+        <item name="fontFamily">@font/poppins_bold</item>
     </style>
 
     <style name="btnSelectStyle" parent="Widget.Material3.Button">
@@ -43,18 +44,7 @@
         <item name="android:textSize">18sp</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/colorText</item>
+        <item name="fontFamily">@font/poppins_bold</item>
     </style>
-
-
-    <!--    <style name="fab_style" parent="Widget.Design.FloatingActionButton">-->
-    <!--        <item name="shapeAppearanceOverlay">@style/fab_rounded</item>-->
-    <!--    </style>-->
-
-    <!--    <style name="fab_rounded" parent="ShapeAppearance.MaterialComponents.SmallComponent">-->
-    <!--        <item name="cornerFamily">rounded</item>-->
-    <!--        <item name="cornerSize">50%</item>-->
-    <!--        <item name="background">@drawable/button_bg</item>-->
-    <!--    </style>-->
-
 
 </resources>
